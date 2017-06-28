@@ -10,7 +10,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
     def list(self, request):
         queryset = self.get_queryset()
-        serialized_list = UserSerializer(queryset)
+        serialized_list = UserSerializer(queryset, many=True)
 
         return Response(serialized_list.data)
 
