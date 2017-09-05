@@ -8,9 +8,9 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = User.objects.all()
 
-    def list(self, request):
-        queryset = self.get_queryset()
-        serialized_list = UserSerializer(queryset, many=True)
+    # def list(self, request):
+    #     queryset = self.get_queryset()
+    #     serialized_list = UserSerializer(queryset, many=True)
 
-        return Response(serialized_list.data)
+    #     return Response(serialized_list.data)
 
