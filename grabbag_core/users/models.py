@@ -1,13 +1,16 @@
 import uuid
 import datetime
+
+from django.contrib.auth.models import AbstractBaseUser
 from django.db import models
 
 # Create your models here.
-class User(models.Model):
+class User(AbstractBaseUser):
+    USERNAME_FIELD = 'email'
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     first_name = models.CharField(max_length=50, blank=False)
     last_name = models.CharField(max_length=50, blank=False)
-    email = models.EmailField(max_length=150, blank=False)
+    email = models.EmailField(max_length=150, blank=False, unique=True)
     address = models.TextField(blank=False, null=False)
     date_of_birth = models.DateTimeField(blank=False)
 
