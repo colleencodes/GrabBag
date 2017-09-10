@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'users',
+    'gifts',
 ]
 
 MIDDLEWARE = [
@@ -100,6 +101,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+MEDIA_ROOT = 'C:/Users/Colleen/Programming Projects/GrabBag/grabbag_core/gift_pics'
+MEDIA_URL = '/media/'
 
 
 # Internationalization
