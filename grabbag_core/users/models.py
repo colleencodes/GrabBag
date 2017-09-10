@@ -4,7 +4,6 @@ import datetime
 from django.contrib.auth.models import AbstractBaseUser
 from django.db import models
 
-# Create your models here.
 class User(AbstractBaseUser):
     USERNAME_FIELD = 'email'
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -15,10 +14,10 @@ class User(AbstractBaseUser):
     date_of_birth = models.DateTimeField(blank=False)
 
     class Meta:
-    	db_table = 'user'
+        db_table = 'user'
 
     def __str__(self):
-    	return self.first_name + ' ' + self.last_name
+        return self.first_name + ' ' + self.last_name
 
     @property
     def is_adult(self):
