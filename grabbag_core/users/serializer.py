@@ -7,9 +7,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id', 'first_name', 'last_name', 'email', 'address', 'date_of_birth', 'is_adult')
 
 class FamilySerializer(serializers.ModelSerializer):
-	# name = serializers.CharField()
-	# members = UserSerializer(many=True)
-
     class Meta:
         model = Family
         fields = ('id', 'name', 'members')
