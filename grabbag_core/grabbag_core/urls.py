@@ -18,12 +18,13 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 from rest_framework.routers import DefaultRouter
-from users.views import UserViewSet
+from users.views import UserViewSet, FamilyViewSet
 from gifts.views import GiftViewSet
 
 router = DefaultRouter()
 router.register(r'users', UserViewSet, base_name='users')
 router.register(r'gifts', GiftViewSet, base_name='gifts')
+router.register(r'families', FamilyViewSet, base_name='families')
 
 urlpatterns = [
 	url(r'^', include(router.urls)),
