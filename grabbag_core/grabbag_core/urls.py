@@ -20,11 +20,13 @@ from django.contrib import admin
 from rest_framework.routers import DefaultRouter
 from users.views import UserViewSet, FamilyViewSet
 from gifts.views import GiftViewSet
+from grabbags.views import GrabbagViewSet
 
 router = DefaultRouter()
 router.register(r'users', UserViewSet, base_name='users')
 router.register(r'gifts', GiftViewSet, base_name='gifts')
 router.register(r'families', FamilyViewSet, base_name='families')
+router.register(r'grabbags', GrabbagViewSet, base_name='grabbags')
 
 urlpatterns = [
 	url(r'^', include(router.urls)),
