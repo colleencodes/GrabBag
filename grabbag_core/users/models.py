@@ -30,3 +30,14 @@ class User(AbstractBaseUser):
             return True
         else:
             return False
+
+class Family(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=100, unique=True)
+    members = models.ManyToManyField(User, blank=False)
+
+    class Meta:
+        db_table = 'family'
+
+    def __str__(self):
+        return self.name + ': ' + self.members
