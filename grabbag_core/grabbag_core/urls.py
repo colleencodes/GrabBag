@@ -18,7 +18,7 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 from rest_framework.routers import DefaultRouter
-from users.views import UserViewSet, FamilyViewSet
+from users.views import UserViewSet, FamilyViewSet, UserGiftViewSet
 from gifts.views import GiftViewSet
 from grabbags.views import GrabbagViewSet
 
@@ -27,6 +27,7 @@ router.register(r'users', UserViewSet, base_name='users')
 router.register(r'gifts', GiftViewSet, base_name='gifts')
 router.register(r'families', FamilyViewSet, base_name='families')
 router.register(r'grabbags', GrabbagViewSet, base_name='grabbags')
+router.register(r'usergifts', UserGiftViewSet, base_name='usergifts')
 
 urlpatterns = [
 	url(r'^', include(router.urls)),

@@ -4,6 +4,9 @@ import datetime
 from django.contrib.auth.models import AbstractBaseUser
 from django.db import models
 
+from gifts.models import Gift
+from grabbags.models import Grabbag
+
 class User(AbstractBaseUser):
     USERNAME_FIELD = 'email'
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -41,3 +44,14 @@ class Family(models.Model):
 
     def __str__(self):
         return self.name + ': ' + self.members
+
+class UserGift(models.Model):
+    user = models.ForeignKey(User)
+    gift = models.ForeignKey(Gift)
+    grabbag = models.ForeignKey(Grabbag)
+
+    class Meta:
+        db_table = 'user_gift'
+
+    def __str__(self):
+        return self.user.first_name + ' ' + self.user.last_name + ': ' + self.gift.name

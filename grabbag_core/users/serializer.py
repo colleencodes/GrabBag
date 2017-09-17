@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from users.models import User, Family
+from users.models import User, Family, UserGift
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,3 +10,8 @@ class FamilySerializer(serializers.ModelSerializer):
     class Meta:
         model = Family
         fields = ('id', 'name', 'members')
+
+class UserGiftSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserGift
+        fields = ('user', 'gift', 'grabbag')
